@@ -276,6 +276,22 @@ public class CalendarView extends FrameLayout {
     }
 
     /**
+     * 设置当前是在某一天并选中
+     * @param calendar
+     */
+    public void setCurrentDay(Calendar calendar){
+        mDelegate.mSelectedCalendar = calendar;
+        mDelegate.mIndexCalendar = calendar;
+        mDelegate.setCurrentDay(calendar);
+        int y = calendar.getYear() - mDelegate.getMinYear();
+        mDelegate.setmCurrentMonthViewItem(12 * y + calendar.getMonth() - mDelegate.getMinYearMonth());
+        mMonthPager.notifyDataSetChanged();
+        mWeekPager.notifyDataSetChanged();
+        mSelectLayout.notifyDataSetChanged();
+        scrollToCurrent();
+    }
+
+    /**
      * 获取当天
      *
      * @return 返回今天
