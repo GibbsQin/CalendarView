@@ -656,6 +656,10 @@ final class CalendarViewDelegate {
         return mCurrentDate;
     }
 
+    void setCurrentDay(Calendar calendar){
+        mCurrentDate = calendar;
+    }
+
     void updateCurrentDay() {
         Date d = new Date();
         mCurrentDate.setYear(CalendarUtil.getDate("yyyy", d));
@@ -801,5 +805,13 @@ final class CalendarViewDelegate {
                 a.setSchemes(null);
             }
         }
+    }
+
+    public int getmCurrentMonthViewItem() {
+        return mCurrentMonthViewItem;
+    }
+
+    public void setmCurrentMonthViewItem(int mCurrentMonthViewItem) {
+        this.mCurrentMonthViewItem = mCurrentMonthViewItem;
     }
 }
